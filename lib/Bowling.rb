@@ -1,14 +1,31 @@
+# Given a valid sequence of rolls for one line of American Ten-Pin Bowling,
+# calculates the total score for the game.
+#
+# @author Menglin "Mark" Xu
+# @see http://codingdojo.org/kata/Bowling/ Bowling Kata.
+#
+# @example A perfect game:
+#   bowling = Bowling.new
+#   12.times { bowling.roll(10) }
+#   bowling.score # 300
 class Bowling
+  # Number of pins struck from each roll.
+  # @return [Array<Numeric>] The pins struck from each roll.
   attr_reader :scores
 
   def initialize
     @scores = []
   end
 
+  # Appends number of pins struck to scores.
+  # @param pins [Numeric] The number of pins struck.
+  # @return (see .scores)
   def roll(pins)
     @scores.push(pins)
   end
 
+  # Calculates the total score for the game.
+  # @return [Numeric] The total score.
   def score()
     total_score = 0
     number_of_rolls = @scores.count
